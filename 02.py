@@ -96,6 +96,10 @@ def mostrar_creditos():
 
 mostrar_creditos()
 
+def dibujar_separador():
+    print("************************************************")
+
+dibujar_separador()
 #Miguel
 
 #------------------------------------- Ejercicios Función con Parámetros (Sin Retorno)
@@ -115,8 +119,8 @@ Ejercicio 4:
 
 Verificador de Límite
 
-Instrucción: Define una función llamada verificar_limite que acepte un parámetro valor y otro limite. 
-La función debe imprimir si el valor es mayor que el limite o no.
+Instrucción: Define una función llamada verificar_limite que acepte un parámetro valor
+y otro limite. La función debe imprimir si el valor es mayor que el limite o no.
 
 Ejemplo de lógica: Si valor > limite, imprime "Valor excede el límite". Si no, imprime "Valor dentro del límite".
 
@@ -124,6 +128,20 @@ Ejemplo de lógica: Si valor > limite, imprime "Valor excede el límite". Si no,
 
 #Sebastián 
 
+def imprimir_ficha(nombre, puesto):
+    print(f"Nombre:{nombre} | Su puesto es: {puesto}")
+
+imprimir_ficha("Sebastián", "Gerente")
+
+def verificar_limite(valor, limite):
+    if valor > limite:
+        print("valor excede el limite")
+    elif valor < limite:
+        print("El valor esta dentro del limite")
+    else:
+        print("El valor es igual al limite")
+
+verificar_limite(32, 62)
 #Miguel
 
 #------------------------------------- Ejercicios Función con Retorno
