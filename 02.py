@@ -68,15 +68,25 @@ print(f"el area de la sala es: {area_sala}")
 print(f"el costo de la sala es: ${costo_total}")
 
 
-#------------------------------------- Ejercicios
+#------------------------------------- Ejercicios sin parametros ni retorno
 
 """
 Ejercicio 1: 
 
 Mensaje de Créditos
+
 Instrucción: Define una función llamada mostrar_creditos que simplemente imprima en la consola tres líneas 
 con información ficticia del desarrollador 
 (ej: "Desarrollado por [Tu Nombre]", "Versión 1.0", "Fecha: 2025"). Llama a la función una vez.
+
+Ejercicio 2: 
+
+Dibujar un Separador
+
+Instrucción: Define una función llamada dibujar_separador que imprima una línea de guiones o asteriscos 
+(ej: ***********) para separar secciones de texto.
+ Llama a la función antes y después de un mensaje de bienvenida simple.
+
 """
 #sebastian
 def mostrar_creditos():
@@ -85,3 +95,71 @@ def mostrar_creditos():
     print("--------------------------------------------------------------------")
 
 mostrar_creditos()
+
+#Miguel
+
+#------------------------------------- Ejercicios Función con Parámetros (Sin Retorno)
+
+"""
+
+Ejercicio 3: 
+
+Imprimir Ficha
+
+Instrucción: Define una función llamada imprimir_ficha que acepte dos parámetros: nombre y puesto. 
+La función debe imprimir un mensaje formateado usando ambos datos.
+
+Ejemplo de llamada: imprimir_ficha("Ricardo", "Gerente de Ventas")
+
+Ejercicio 4: 
+
+Verificador de Límite
+
+Instrucción: Define una función llamada verificar_limite que acepte un parámetro valor y otro limite. 
+La función debe imprimir si el valor es mayor que el limite o no.
+
+Ejemplo de lógica: Si valor > limite, imprime "Valor excede el límite". Si no, imprime "Valor dentro del límite".
+
+"""
+
+#Sebastián 
+
+#Miguel
+
+#------------------------------------- Ejercicios Función con Retorno
+
+"""
+
+Ejercicio 5: 
+
+Cálculo de IVA
+Instrucción: Define una función llamada calcular_iva que acepte un parámetro precio_base. 
+La función debe calcular el 21% de ese precio y retornar el monto del IVA.
+
+Uso del resultado: Llama a la función y guarda el resultado en una variable llamada monto_iva.
+Luego, suma precio_base y monto_iva para obtener el precio final e imprímelo.
+
+Ejercicio 6: 
+
+Longitud de Palabra
+Instrucción: Define una función llamada obtener_longitud que acepte un parámetro palabra. 
+La función debe usar la función incorporada len() y retornar la longitud de esa palabra.
+
+Uso del resultado: Llama a la función pasando una palabra (ej: "Python")
+e imprime un mensaje que diga si la palabra es "larga" (si la longitud es mayor a 5) 
+o "corta" (si es 5 o menos), usando el valor de retorno.
+
+Ejercicio 7: 
+
+Conversor de Temperatura (Múltiples Parámetros y Retorno)
+Instrucción: Define una función llamada celsius_a_fahrenheit que acepte un parámetro celsius. 
+La función debe convertir la temperatura a Fahrenheit usando la fórmula:
+F=(C x 9/5)+32
+Retorno: La función debe retornar el valor de F.
+Llama a la función con el valor 25 y guarda el resultado para imprimirlo.
+
+"""
+#Sebastián
+
+#Miguel
+
