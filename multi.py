@@ -107,10 +107,13 @@ for fruta in frutas:
 
 
 
+def multiplica_por_5(numero):
+    print(numero, "* 5 =", (numero * 5))
 
-
-
-
-
+print('Comienzo del programa')    
+multiplica_por_5(7)
+print('Siguiente')
+multiplica_por_5(113)
+print('Fin')
 
 
