@@ -179,5 +179,14 @@ Llama a la función con el valor 25 y guarda el resultado para imprimirlo.
 """
 #Sebastián
 
+def calcular_iva(precio_base):
+    iva = precio_base * 0.21
+    return iva
+
+monto_iva = calcular_iva(21000)
+
+produ_iva = monto_iva + 21000
+
+print("tu producto con iva tiene un costo de: ", produ_iva)
 #Miguel
 
