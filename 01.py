@@ -351,6 +351,7 @@ while pin != "1234":
 
 """Concepto: Controlar la repetición hasta que se cumple un criterio numérico.
 
+
 Instrucción: Pide al usuario que ingrese números repetidamente. 
 El bucle debe continuar mientras el número ingresado no sea un múltiplo de 7. 
 Una vez que ingrese un múltiplo de 7, el bucle debe terminar."""
@@ -369,9 +370,4 @@ while multi == 0:
         break
     
      
-
-    
-    
-    
-     
-    
+print("penes a domicilio ")
