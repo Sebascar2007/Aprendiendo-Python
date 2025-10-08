@@ -295,6 +295,16 @@ Algunos ejemplos de estas funciones son:
 - len(): Devuelve la longitud (Número de elementos) de un objeto (lista, cadena, etc.)
 - type(): Devuelve el tipo de un objeto
 - max(): Devuelve el elemento mas grande de un iterable 
+- min(): Devuelve el elemento más pequeño de un iterable
+- sorted(): Develve una nueva lista ordenada a partir del iterable
+- int(): Convierte el valor a un numero entero
+- float(): Convierte el valor a un número de punto flotante
+- str(): Convierte el valor a una cadena de texto
+- bool(): Convierte el valor en un booleano (True / False)
+- abs(): Devuelve el valor absoluto de un numero (-5) devuelve 5
+- round(): Redondea un número al entero más cercano o al número de decimales especificados
+- sum(): suma todos los elementos de un iterable (lista, tupla).
+- all(): Devuelve True si todos los elementos de un iterable son verdaderos
 
 """
 
@@ -313,3 +323,178 @@ print(f"La longitud de la lista es {longitud_lista} y la longitud del texto es {
 #Usando la funcion type
 
 tipo_lista = type(mi_lista)
+tipo_texto = type(mi_texto)
+
+print(f"El tipo de tu lista es {tipo_lista} y el tipo de texto es {tipo_texto}")
+
+#Usando la función max
+
+max_list = max(mi_lista)
+max_text = max(mi_texto) #La función max mide el maximo de una cadena de texto por su orden alfabeticamente
+
+print(f"El número maximo de la lista es {max_list} y en el texto es {max_text}")
+
+#----------------------------------------- Variables para funciones (Local o Global)
+
+"""
+Este es un concepto fundamental para evitar errores y ademas sirve como medio de optimización y gestion de memoria en proyectos grandes.
+
+- Variable Global: Se define fuera de cualquier función. es accesible (se puede leer) desde cualquier parte del codigo 
+incluyendo dentro de las funciones.
+
+-Variable Local: Se define dentro de una función. Solo existe mientras se ejecuta dicha función
+y es completamente inaccesible fuera de ella.
+
+"""
+
+#--------------- Ejemplo variable global (accesible en todas partes)
+
+PI = 3.14159
+
+def calcular_circunferencia(radio):
+    #Variable local (solo existe dentro de la función)
+    circunferencia = 2 * PI * radio
+
+    print("\n--- Prueba de ambitos (Local Vs Global) ---")
+    print(f"Desde dentro de la funcion: PI global es {PI}")
+    print(f"Desde dentro de la funcion: circunferencia Local es {circunferencia}")
+
+    return circunferencia
+
+#Llamada a la función
+
+resultado_circunferencia = calcular_circunferencia(5)
+
+print(f"Desde fuera de la funcion: PI global es {PI}")
+print(f"Desde fuera de la fucion: resultado devuelto es {resultado_circunferencia}")
+
+# el siguiento codigo si se llegara a ejecutar generara error 
+#print(circunferencia) 
+#ese codigo genera error debido a que la  variable circunferencia es una variable local que esta dentro de una funcion
+
+#----------------------------------------------- Modificar Variables Globales 
+
+"""
+Si intentas modificar una  variable global dentro de una funcion, python asume por defecto que
+estas creado una nueva variable local con el mismo nombre. para indicarle
+a python que realmente quires modificar la v ariable global, debes usar la palabra clave global
+
+
+"""
+
+contador = 0 #Variable Global
+
+def incrementar_global():
+    global contador #Indicamos que queremos usar la variable global
+    contador += 1 #Ahora modifica la variable global
+
+print(f"\n--- Prueba de Modificación Global ---")
+print(f"Valor inicial de Contador: {contador}")
+incrementar_global()
+incrementar_global()
+print(f"Valor final de Contador: {contador}") # se ha modificado (era 0 ahora es 2)
+
+#--------------------------------------------------------------------- Ejercicios
+
+"""
+Ejercicio 1  Validador de Datos y Calculadora (Ámbito y Built-ins)
+
+Este ejercicio simula un sistema de procesamiento de datos que solo 
+acepta números dentro de un rango definido globalmente.
+
+🎯 Objetivos de Aprendizaje
+
+- Usar una variable global como límite de validación.
+- Utilizar la palabra clave global para modificar un contador. 
+- Usar funciones integradas como int(), sum(), y len().
+- Usar bloques try/except para manejar la conversión de tipos.
+
+📝 Instrucciones
+
+- Define una variable global llamada LIMITE_VALOR con el valor 100.
+- Define una variable global llamada CONTADOR_ERRORES con el valor 0.
+- Define una función llamada procesar_lista(lista_strings) que acepte una lista de cadenas de texto como parámetro.
+- Dentro de procesar_lista, inicializa una lista local llamada numeros_validos.
+- Usa un bucle for para iterar sobre lista_strings. En cada iteración:
+- Usa un bloque try para convertir la cadena a entero (int()).
+- Si la conversión falla (ValueError), usa la palabra clave global para incrementar CONTADOR_ERRORES y luego usa continue para saltar a la siguiente iteración.
+- Si el número es mayor que LIMITE_VALOR, también ignóralo.
+- Si el número es válido, añádelo a la lista numeros_validos.
+- Al final de la función, usa las funciones integradas sum() y len() para calcular el promedio de los numeros_validos y retorna este promedio.
+-Llama a la función y luego imprime el promedio retornado y el valor final de CONTADOR_ERRORES.
+"""
+
+#Sebastián
+
+#Miguel
+
+"""
+Ejercicio 2  Generador de Clasificación de Productos (Anidación y Ámbito)
+
+Este ejercicio utiliza una función anidada para ocultar la lógica de formato de un valor de retorno.
+
+🎯 Objetivos de Aprendizaje
+Crear y usar una función anidada.
+
+Demostrar el ámbito local de la función anidada (no se puede llamar desde fuera).
+
+Usar funciones integradas como max() y round().
+
+📝 Instrucciones
+Define una función externa llamada generar_reporte(precios) que acepte una lista de números flotantes (precios).
+
+Dentro de generar_reporte, define una función anidada llamada formatear_moneda(monto). Esta función interna debe usar la función integrada round()
+para redondear el monto a 2 decimales y retornar el valor.
+
+Dentro de generar_reporte, usa las funciones integradas max() y min() para encontrar el precio más alto y el más bajo de la lista.
+
+Llama a la función anidada formatear_moneda() con el valor máximo encontrado y el valor mínimo encontrado.
+
+La función generar_reporte debe retornar una tupla que contenga: (Precio Máximo Formateado, Precio Mínimo Formateado).
+
+Llama a la función generar_reporte con una lista de precios, desempaqueta los valores retornados e imprímelos.
+
+"""
+
+#Sebastián 
+
+#Miguel
+
+"""
+Ejercicio 3 Clasificador de Texto (Built-ins y Lógica de Flujo)
+
+Este ejercicio utiliza el retorno de valor de varias funciones integradas para determinar una clasificación final.
+
+🎯 Objetivos de Aprendizaje
+Usar las funciones integradas len(), sorted(), y str.upper().
+
+Usar un valor de retorno de una función para alimentar otra.
+
+📝 Instrucciones
+Define una función llamada obtener_longitud_y_mayusculas(texto) que:
+
+Use la función integrada len() para obtener la longitud del texto.
+
+Use el método .upper() para convertir el texto a mayúsculas.
+
+Retorne una tupla con la (longitud, texto_en_mayusculas).
+
+Define una segunda función llamada clasificar_texto(longitud) que:
+
+Tome la longitud como parámetro.
+
+Si la longitud es mayor que 10, retorne la cadena "LARGO".
+
+Si la longitud es 10 o menos, retorne la cadena "CORTO".
+
+Llama a obtener_longitud_y_mayusculas con una frase de prueba (ej: "aprendizaje en python").
+
+Usa el valor de retorno (la longitud) para llamar a clasificar_texto.
+
+Finalmente, imprime el texto en mayúsculas, la longitud y la clasificación obtenida.
+
+"""
+
+#Sebastián
+
+#Miguel
