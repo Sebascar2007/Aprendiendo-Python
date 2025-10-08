@@ -103,6 +103,15 @@ dibujar_separador()
 
 #Miguel
 
+def mostraracreditos():
+    print("Desarrollado por Miguel , Version 1.16.4 , Last-Released 07/09/2025 ")
+
+mostraracreditos()
+
+def separador():
+    print("*****************************************")
+
+separador()
 #------------------------------------- Ejercicios Función con Parámetros (Sin Retorno)
 
 """
@@ -144,7 +153,22 @@ def verificar_limite(valor, limite):
 
 verificar_limite(32, 62)
 #Miguel
+def ficha_informacion(nombre,cargo):
+    print(f"Nombre:{nombre} | Cargo: {cargo}")
 
+ficha_informacion("Miguel" , "Proxeneta")
+
+def verifgicarlimites(valor,limites):
+    if valor > limites:
+        print("Valor Exede los limites permitidos")
+    elif valor < limites:
+        print("El valor esta dentro de los limites permitidos")
+    else:
+        print("El valor es igual a los limites permitidos")
+
+verifgicarlimites(45,13)
+verifgicarlimites(3,13)
+verifgicarlimites(13,13)
 #------------------------------------- Ejercicios Función con Retorno
 
 """
@@ -189,5 +213,103 @@ monto_iva = calcular_iva(21000)
 produ_iva = monto_iva + 21000
 
 print("tu producto con iva tiene un costo de: ", produ_iva)
-#Miguel
 
+
+def obtener_longitud(palabra):
+    longitud = len(palabra)
+    return longitud
+
+if obtener_longitud("python") > 5:
+    print("Es una palabra larga")
+elif obtener_longitud("python") < 5:
+    print("Es una palabra corta")
+
+def celcius_a_farenheit(celcius):
+    farenheit = (celcius * (9/5)) + 32
+    return farenheit
+
+celcius_a_farenheit(25)
+#Miguel
+def calculadora_iva(precio_base):
+    iva = precio_base * 0.21
+    return iva
+
+Valor_iva = calculadora_iva(50000)
+
+Valor_final = Valor_iva + 50000
+print("El valor final de tu producto es igual a ", Valor_final)
+
+def Obtencion_logitud(palabra):
+    largo_palabra = len(palabra)
+    return largo_palabra
+
+if Obtencion_logitud("Almuerzos a domicilio viejo") > 5:
+    print("Te exediste al numero de caracteres permitidos")
+elif Obtencion_logitud("Almuerzos a domicilio viejo") < 5:
+    print("Cumples con todos los parametros")
+
+
+def cel_a_fa(celcius):
+    fa=(celcius * (9/5)) +32
+    return fa
+
+cel_a_fa(25)
+
+
+
+#----------------------------------------Funciones anidadas (Funciones dentro de funciones)
+
+#¿Para que sirven?  """
+
+"""Las funcion interna solo es accesible y visible denetro del alcance de la funcion externa. esto es util para:
+-Encapsulamiento: mantener el codigo organizado y evitar conflictos de nombres.
+-reutilizacion: La funcion interna puede ser reutilizada dentro de la funcion externa.
+-clousure(cerraduras): crear funciones que recuerdan y acceden a las variables de la funcion externa, incluso después d e que esta haya terminado de ejecutrase
+
+"""
+
+def externa(texto):
+    # La variable texto es accesible aqui
+    def interna_mayusculas(t):
+        #Esta función interna solo existe dentro de externa
+        return t.upper()
+    
+    #llamamos a la funcion interna
+    resultado = interna_mayusculas(texto)
+    print(f"Resultado final (externa): {resultado}")
+
+#llamado a la función externa
+print("---- Función Anidada ----")
+externa("anidacion de funciones")
+
+#si se intenta llamar a la funcion interna esto generara un error como se ve acontinuacion
+#externa.interna_mayusculas("error")
+
+#------------------------------------------------Funciones ya creadas por python
+"""
+Python viene con cientos de funciones y herramientas ya disponibles que no tienes que importar. Conocer estas funciones integradas
+(built-in) re ahorrará mucho teimpo de proramación.
+
+Algunos ejemplos de estas funciones son:
+
+- len(): Devuelve la longitud (Número de elementos) de un objeto (lista, cadena, etc.)
+- type(): Devuelve el tipo de un objeto
+- max(): Devuelve el elemento mas grande de un iterable 
+
+"""
+
+mi_lista = [50, 10, 80, 25]
+mi_texto = "Python"
+
+print("----- Funciones Integradas ----")
+
+#usando la funcion len()
+
+longitud_lista = len(mi_lista)
+longitud_text = len(mi_texto) #sexo gay
+
+print(f"La longitud de la lista es {longitud_lista} y la longitud del texto es {longitud_text}")
+
+#Usando la funcion type
+
+tipo_lista = type(mi_lista)
