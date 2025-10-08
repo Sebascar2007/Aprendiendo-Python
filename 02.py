@@ -100,6 +100,7 @@ def dibujar_separador():
     print("************************************************")
 
 dibujar_separador()
+
 #Miguel
 
 #------------------------------------- Ejercicios Función con Parámetros (Sin Retorno)
