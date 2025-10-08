@@ -425,6 +425,32 @@ acepta números dentro de un rango definido globalmente.
 """
 
 #Sebastián
+LIMITE_VALOR = 100
+CONTADOR_ERRORES = 0
+
+def procesar_lista(lista_strings):
+    for i in lista_strings:
+        try:
+            int(lista_strings)
+        except ValueError:
+            CONTADOR_ERRORES += 1
+            print("Ocurrio un Error, Tu numero de errores es: ", CONTADOR_ERRORES)
+            continue
+        if lista_strings > LIMITE_VALOR:
+            print("Estas fuera del rango")
+            continue
+        if lista_strings < 0:
+            print("Estas fuera de rango")
+            continue
+        else:
+            numeros_validos = lista_strings
+
+    promedio = sum(len(numeros_validos))
+    return promedio
+
+procesar_lista("Hola estupido de mierda asaqueroso")
+
+print("El promedio de datos es: ", procesar_lista("Hola estupido de mierda asaqueroso"))
 
 #Miguel
 
