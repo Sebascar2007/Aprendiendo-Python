@@ -395,132 +395,50 @@ incrementar_global()
 print(f"Valor final de Contador: {contador}") # se ha modificado (era 0 ahora es 2)
 
 #--------------------------------------------------------------------- Ejercicios
-
 """
-Ejercicio 1  Validador de Datos y Calculadora (Ámbito y Built-ins)
+Crea una función que reciba dos parámetros de tipo cadena de texto y retorne un número.
+ *   - La función imprime todos los números del 1 al 100. Teniendo en cuenta que:
+ *   - Si el número es múltiplo de 3, muestra la cadena de texto del primer parámetro.
+ *   - Si el número es múltiplo de 5, muestra la cadena de texto del segundo parámetro.
+ *   - Si el número es múltiplo de 3 y de 5, muestra las dos cadenas de texto concatenadas.
+ *   - La función retorna el número de veces que se ha impreso el número en lugar de los textos.
 
-Este ejercicio simula un sistema de procesamiento de datos que solo 
-acepta números dentro de un rango definido globalmente.
-
-🎯 Objetivos de Aprendizaje
-
-- Usar una variable global como límite de validación.
-- Utilizar la palabra clave global para modificar un contador. 
-- Usar funciones integradas como int(), sum(), y len().
-- Usar bloques try/except para manejar la conversión de tipos.
-
-📝 Instrucciones
-
-- Define una variable global llamada LIMITE_VALOR con el valor 100.
-- Define una variable global llamada CONTADOR_ERRORES con el valor 0.
-- Define una función llamada procesar_lista(lista_strings) que acepte una lista de cadenas de texto como parámetro.
-- Dentro de procesar_lista, inicializa una lista local llamada numeros_validos.
-- Usa un bucle for para iterar sobre lista_strings. En cada iteración:
-- Usa un bloque try para convertir la cadena a entero (int()).
-- Si la conversión falla (ValueError), usa la palabra clave global para incrementar CONTADOR_ERRORES y luego usa continue para saltar a la siguiente iteración.
-- Si el número es mayor que LIMITE_VALOR, también ignóralo.
-- Si el número es válido, añádelo a la lista numeros_validos.
-- Al final de la función, usa las funciones integradas sum() y len() para calcular el promedio de los numeros_validos y retorna este promedio.
--Llama a la función y luego imprime el promedio retornado y el valor final de CONTADOR_ERRORES.
 """
 
 #Sebastián
-LIMITE_VALOR = 100
-CONTADOR_ERRORES = 0
 
-def procesar_lista(lista_strings):
-    for i in lista_strings:
-        try:
-            int(lista_strings)
-        except ValueError:
-            CONTADOR_ERRORES += 1
-            print("Ocurrio un Error, Tu numero de errores es: ", CONTADOR_ERRORES)
-            continue
-        if lista_strings > LIMITE_VALOR:
-            print("Estas fuera del rango")
-            continue
-        if lista_strings < 0:
-            print("Estas fuera de rango")
-            continue
+CONTADOR = 0
+
+def multiplos(multiplo3, multiplo5):
+    for i in range(1, 101):
+        if i % 3 == 0:
+            print(multiplo3)
+        elif i % 5 == 0:
+            print(multiplo5)
+        elif i % 3 == 0 and i % 5 == 0:
+            print(multiplo3 + multiplo5)
         else:
-            numeros_validos = lista_strings
+            global CONTADOR
+            CONTADOR += 1
+        
+    return CONTADOR
+    
 
-    promedio = sum(len(numeros_validos))
-    return promedio
-
-procesar_lista("Hola estupido de mierda asaqueroso")
-
-print("El promedio de datos es: ", procesar_lista("Hola estupido de mierda asaqueroso"))
-
-#Miguel
-
-"""
-Ejercicio 2  Generador de Clasificación de Productos (Anidación y Ámbito)
-
-Este ejercicio utiliza una función anidada para ocultar la lógica de formato de un valor de retorno.
-
-🎯 Objetivos de Aprendizaje
-Crear y usar una función anidada.
-
-Demostrar el ámbito local de la función anidada (no se puede llamar desde fuera).
-
-Usar funciones integradas como max() y round().
-
-📝 Instrucciones
-Define una función externa llamada generar_reporte(precios) que acepte una lista de números flotantes (precios).
-
-Dentro de generar_reporte, define una función anidada llamada formatear_moneda(monto). Esta función interna debe usar la función integrada round()
-para redondear el monto a 2 decimales y retornar el valor.
-
-Dentro de generar_reporte, usa las funciones integradas max() y min() para encontrar el precio más alto y el más bajo de la lista.
-
-Llama a la función anidada formatear_moneda() con el valor máximo encontrado y el valor mínimo encontrado.
-
-La función generar_reporte debe retornar una tupla que contenga: (Precio Máximo Formateado, Precio Mínimo Formateado).
-
-Llama a la función generar_reporte con una lista de precios, desempaqueta los valores retornados e imprímelos.
-
-"""
-
-#Sebastián 
+multiplos("es multiplo de 3", "es multiplo de 5")
+print(f"las veces que salio un numero sin ser multiplo fueron {CONTADOR}")
 
 #Miguel
+def multiplos_os(texto_1 , texto_2):
+    for i in range(1,101):
+        if i % 3 == 0:
+            print(texto_1)
+        if i % 5 == 0:
+            print(texto_2)
+        if i % 3 == 0 and i % 5 == 0:
+            print(texto_1  +   texto_2)
 
-"""
-Ejercicio 3 Clasificador de Texto (Built-ins y Lógica de Flujo)
+    return i
+    
+multiplos_os("Tu numero es multiplo de 3" , "Tu numero es multiplo de 5")
+        
 
-Este ejercicio utiliza el retorno de valor de varias funciones integradas para determinar una clasificación final.
-
-🎯 Objetivos de Aprendizaje
-Usar las funciones integradas len(), sorted(), y str.upper().
-
-Usar un valor de retorno de una función para alimentar otra.
-
-📝 Instrucciones
-Define una función llamada obtener_longitud_y_mayusculas(texto) que:
-
-Use la función integrada len() para obtener la longitud del texto.
-
-Use el método .upper() para convertir el texto a mayúsculas.
-
-Retorne una tupla con la (longitud, texto_en_mayusculas).
-
-Define una segunda función llamada clasificar_texto(longitud) que:
-
-Tome la longitud como parámetro.
-
-Si la longitud es mayor que 10, retorne la cadena "LARGO".
-
-Si la longitud es 10 o menos, retorne la cadena "CORTO".
-
-Llama a obtener_longitud_y_mayusculas con una frase de prueba (ej: "aprendizaje en python").
-
-Usa el valor de retorno (la longitud) para llamar a clasificar_texto.
-
-Finalmente, imprime el texto en mayúsculas, la longitud y la clasificación obtenida.
-
-"""
-
-#Sebastián
-
-#Miguel
